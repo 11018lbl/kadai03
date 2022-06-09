@@ -1,5 +1,6 @@
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 
 public class kadai003 {
@@ -7,6 +8,7 @@ public class kadai003 {
     String str = args[0];
     System.out.println(str);
     codecheck(str);
+    excheck(str);
   }
 
   public static void codecheck(String x){
@@ -30,5 +32,26 @@ public class kadai003 {
            e.printStackTrace();
        }
 
+  }
+
+  public static void excheck(String x){
+    String pattern1 = "\n";
+    Pattern p1 = Pattern.compile(pattern1);
+    String pattern2 = "\r";
+    Pattern p2 = Pattern.compile(pattern2);
+    String pattern3 = "\r\n";
+    Pattern p3 = Pattern.compile(pattern3);
+
+    if(p3.matcher(x).find()){
+      System.out.println("CRLF");
+    }else{
+      if(p1.matcher(x).find()){
+        System.out.println("LF");
+      }else if(p2.matcher(x).find()){
+        System.out.println("CR");
+      }else{
+        System.out.println("検出不能");
+      }
+    }
   }
 }
