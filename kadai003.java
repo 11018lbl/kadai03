@@ -9,6 +9,7 @@ public class kadai003 {
     System.out.println(str);
     codecheck(str);
     excheck(str);
+    textcheck(str);
   }
 
   public static void codecheck(String x){
@@ -52,6 +53,41 @@ public class kadai003 {
       }else{
         System.out.println("検出不能");
       }
+    }
+  }
+
+  public static void textcheck(String x){
+    String pattern1 = "^[Ａ-Ｚａ-ｚ]+$";
+    Pattern p1 = Pattern.compile(pattern1);
+    String pattern2 = "^[A-Za-z]+$";
+    Pattern p2 = Pattern.compile(pattern2);
+    String pattern3 = "^[０-９]+$";
+    Pattern p3 = Pattern.compile(pattern3);
+    String pattern4 = "^[0-9]+$";
+    Pattern p4 = Pattern.compile(pattern4);
+
+    if(p1.matcher(x).find()){
+      System.out.println("全角英のみ");
+    }else{
+      System.out.println("全角英なし");
+    }
+
+    if(p2.matcher(x).find()){
+      System.out.println("半角英のみ");
+    }else{
+      System.out.println("半角英なし");
+    }
+
+    if(p3.matcher(x).find()){
+      System.out.println("全角数のみ");
+    }else{
+      System.out.println("全角数なし");
+    }
+
+    if(p4.matcher(x).find()){
+      System.out.println("半角数のみ");
+    }else{
+      System.out.println("半角数なし");
     }
   }
 }
